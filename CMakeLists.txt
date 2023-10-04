@@ -15,7 +15,7 @@ if(OpenMP_CXX_FOUND)
 endif()
 
 add_executable(LLVM_course
-    ${CMAKE_SOURCE_DIR}/src/life.cpp
-    ${CMAKE_SOURCE_DIR}/src/main.cpp)
+    ${CMAKE_SOURCE_DIR}/LifeGame/life.cpp
+    ${CMAKE_SOURCE_DIR}/LifeGame/main.cpp)
 
 target_link_libraries(LLVM_course sfml-graphics sfml-audio)

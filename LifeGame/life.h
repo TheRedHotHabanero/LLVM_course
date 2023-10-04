@@ -4,7 +4,7 @@
 
 const int WIDTH = 1400;
 const int HEIGHT = 800;
-const int CELL_SIZE = 4;
+const int CELL_SIZE = 10;
 const int GRID_WIDTH = WIDTH / CELL_SIZE;
 const int GRID_HEIGHT = HEIGHT / CELL_SIZE;
 

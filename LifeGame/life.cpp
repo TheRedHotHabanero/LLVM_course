@@ -1,9 +1,8 @@
-#include "../include/life.h"
 #include <SFML/Graphics.hpp>
-#include <vector>
 #include <ctime>
-#include <cstdlib>
 #include <omp.h>
+
+#include "life.h"
 
 void LifeGame::updateGrid(std::vector<std::vector<bool>> &grid, std::vector<std::vector<bool>> &nextGrid) {
     #pragma omp parallel for
