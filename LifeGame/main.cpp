@@ -13,7 +13,7 @@ int main() {
     srand(static_cast<uint8_t>(time(nullptr)));
 
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Game of Life");
-    Menu::create_icon("icon.jpg", window);
+    Menu::create_icon("../naruto.png", window);
     window.display();
 
     bool settingInitialState = true;
@@ -27,10 +27,8 @@ int main() {
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && settingInitialState) {
             // Обработка щелчка мыши для установки состояния клетки
             sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
-            // int x = mousePosition.x / CELL_SIZE;
-            // int y = mousePosition.y / CELL_SIZE;
-            int x = mousePosition.x / CELL_SIZE + 2;
-            int y = mousePosition.y / CELL_SIZE + 2;
+            int x = mousePosition.x / CELL_SIZE;
+            int y = mousePosition.y / CELL_SIZE;
             // Проверяем, что координаты внутри игровой сетки
             if (x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT) {
                 grid[x][y] = !grid[x][y]; // Инвертируем состояние клетки
@@ -42,11 +40,9 @@ int main() {
             settingInitialState = false;
         }
     }
-
     sf::Clock clock;
     double deltaTime = (float)0.0;
     double updateInterval = (float)0.0;
-    // window.display();
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
