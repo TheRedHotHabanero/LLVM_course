@@ -51,7 +51,7 @@ void LifeGame::drawGrid(sf::RenderWindow& window, std::vector<std::vector<bool>>
         }
     }
 
-    Menu::create_icon("../naruto.png", window);
+    Menu::create_icon("../images/naruto.png", window);
     window.display();
 }
 
