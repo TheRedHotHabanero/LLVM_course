@@ -20,8 +20,23 @@ if(OpenMP_CXX_FOUND)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 endif()
 
-add_executable(LLVM_course
+# Define the source files for your project
+set(SOURCE_FILES
     ${CMAKE_SOURCE_DIR}/LifeGame/life.cpp
-    ${CMAKE_SOURCE_DIR}/LifeGame/main.cpp)
+    ${CMAKE_SOURCE_DIR}/LifeGame/main.cpp
+)
+
+add_executable(LLVM_course ${SOURCE_FILES})
 
 target_link_libraries(LLVM_course sfml-graphics sfml-audio)
+
+# Define a custom target to generate LLVM IR
+add_custom_target(GenerateLLVMIR
+    COMMAND mkdir -p ${CMAKE_BINARY_DIR}/llvm_ir  # Create the output directory if it doesn't exist
+    COMMAND clang++ -S -emit-llvm ${SOURCE_FILES} ${CMAKE_BINARY_DIR}/llvm_ir/
+    DEPENDS LLVM_course
+)
+
+# Reset the compiler variables to their original values
+set(CMAKE_CXX_COMPILER g++)
+set(CMAKE_C_COMPILER gcc)

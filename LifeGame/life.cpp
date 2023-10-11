@@ -1,11 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include <ctime>
-#include <omp.h>
+// #include <omp.h>
 
 #include "life.h"
 
 void LifeGame::updateGrid(std::vector<std::vector<bool>> &grid, std::vector<std::vector<bool>> &nextGrid) {
-    #pragma omp parallel for
+    // #pragma omp parallel for
     for (int x = 0; x < GRID_WIDTH; x++) {
         for (int y = 0; y < GRID_HEIGHT; y++) {
             int aliveNeighbors = 0;

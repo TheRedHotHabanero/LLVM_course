@@ -1,5 +1,5 @@
-mkdir build
+cmake -B build
 cd build
-cmake ..
 make
+make GenerateLLVMIR
 ./LLVM_course
