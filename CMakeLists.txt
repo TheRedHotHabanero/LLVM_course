@@ -24,7 +24,7 @@ target_link_libraries(LLVM_course SDL2)
 # Define a custom target to generate LLVM IR
 add_custom_target(GenerateLLVMIR
     COMMAND mkdir -p ${CMAKE_BINARY_DIR}/llvm_ir  # Create the output directory if it doesn't exist
-    COMMAND clang++ -S -emit-llvm ${SOURCE_FILES} ${CMAKE_BINARY_DIR}/llvm_ir/
+    COMMAND clang++ -O2 -S -emit-llvm ${SOURCE_FILES} ${CMAKE_BINARY_DIR}/llvm_ir/
     DEPENDS LLVM_course
 )
 
