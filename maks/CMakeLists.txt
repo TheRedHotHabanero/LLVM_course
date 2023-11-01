@@ -8,16 +8,13 @@ find_package(SDL2 REQUIRED)
 # Создаем директорию для сборки
 set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/build)
 
-set(CMAKE_C_COMPILER "clang")
-set(CMAKE_CXX_COMPILER "clang++")
-
 # Создаем директорию сборки, если она не существует
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # Define the source files for your project
 set(SOURCE_FILES
-    ${CMAKE_SOURCE_DIR}/LifeGame/app.cpp
-    ${CMAKE_SOURCE_DIR}/LifeGame/sim.cpp
+    ${CMAKE_SOURCE_DIR}/life.cpp
+    ${CMAKE_SOURCE_DIR}/sim.cpp
 )
 
 add_executable(LLVM_course ${SOURCE_FILES})
@@ -31,6 +28,6 @@ add_custom_target(GenerateLLVMIR
     DEPENDS LLVM_course
 )
 
-set(SOURCE_FILES_NEW
-    ${CMAKE_SOURCE_DIR}/CustomPass/pass.cpp
-)
+# Reset the compiler variables to their original values
+set(CMAKE_CXX_COMPILER g++)
+set(CMAKE_C_COMPILER gcc)

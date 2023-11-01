@@ -1,7 +1,7 @@
 # Курс по LLVM by Сергей Лисицын
 ## 7 семестр, Лирисман Карина, Б01-008
 
-<image src="images/wall.jpg">
+<image src="wall.jpg">
 
 ## Игра жизнь
 
