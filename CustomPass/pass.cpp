@@ -9,6 +9,7 @@
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Transforms/IPO/PassManagerBuilder.h"
 #include "llvm/Transforms/Utils/BasicBlockUtils.h"
+#include "llvm/Transforms/IPO/PassManagerBuilder.h"
 
 using namespace llvm;
 
@@ -79,11 +80,17 @@ struct CustomPass : public FunctionPass {
 char CustomPass::ID = 0;
 
 // code below is from http://adriansampson.net/blog/clangpass.html
-static void registerMyPass(const PassManagerBuilder &,
+static void registerMyPass(const PassManagerBuilder &Builder,
                            llvm::legacy::PassManagerBase &PM) {
-    PM.add(new CustomPass());
+    // Double check of opt level
+    if (Builder.OptLevel == 2) {
+        PM.add(new CustomPass());
+        outs () << "GOTCHA" << "\n";
+    } else {
+        outs () << "not hehe" << "\n";
+    }
 }
 static RegisterStandardPasses
-    RegisterMyPass(PassManagerBuilder::EP_EarlyAsPossible,
+    RegisterMyPass(PassManagerBuilder::EP_OptimizerLast,
                    registerMyPass);
 } // namespace my_pass

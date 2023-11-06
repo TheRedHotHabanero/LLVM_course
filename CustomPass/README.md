@@ -11,4 +11,12 @@ python3 analysis.py
 ```
 
 ## Анализ часто повторяющихся паттернов
-<image src="graph.png">
+<image src="graph1.png">
+
+<image src="graph2.png">
+
+<image src="graph3.png">
+
+<image src="graph4.png">
+
+<image src="graph5.png">
