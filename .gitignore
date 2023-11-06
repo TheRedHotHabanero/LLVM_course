@@ -1,5 +1,6 @@
 build/
 CustomPass/build/
+IRGenerator/build/
 LLVM_course
 oldLifeGame/
 .vscode/
